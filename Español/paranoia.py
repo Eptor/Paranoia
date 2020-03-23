@@ -37,7 +37,7 @@ if len(sys.argv) == 3:
         print("Proceso completado.")
         system("cls")
 
-#! Manejo de errores
+# Manejo de errores
 elif len(sys.argv) == 2 and sys.argv[1] == "-h" or len(sys.argv) < 2:
     print('''
     Puedes usar "-e" + tu contraseña para encreiptar (paranoia.py -e password123)
@@ -46,4 +46,3 @@ elif len(sys.argv) == 2 and sys.argv[1] == "-h" or len(sys.argv) < 2:
 ''')
 elif len(sys.argv) > 3:
     print("Usaste mas de 2 parametros")
-

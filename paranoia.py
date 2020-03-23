@@ -37,7 +37,7 @@ if len(sys.argv) == 3:
         print("Procces completed.")
         system("cls")
 
-#! Error handle
+# Error handle
 elif len(sys.argv) == 2 and sys.argv[1] == "-h" or len(sys.argv) < 2:
     print('''
     You can use "-e" + your password to enctypr (paranoia.py -e password123)
