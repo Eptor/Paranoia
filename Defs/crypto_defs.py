@@ -5,7 +5,7 @@ from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 
-#! Base Def was grabbed from the docs: https://cryptography.io/en/latest/fernet/#using-passwords-with-fernet
+#! The base process was grabbed from the docs: https://cryptography.io/en/latest/fernet/#using-passwords-with-fernet
 
 def encrypt(password, file):
     salt = b'\xbd\x10\xcb\x8aK\x88Dw\xd8\x1b!\x909.\x07e'
@@ -36,5 +36,5 @@ def decrypt(password, token):
     )
     key = base64.urlsafe_b64encode(kdf.derive(password)) # Generates a secure password using the given password in the parameters
     f = Fernet(key)
-    DecryptedToken = f.decrypt(token) # Decrypts the file given
+    DecryptedToken = f.decrypt(token) # Decrypts the given file
     return DecryptedToken

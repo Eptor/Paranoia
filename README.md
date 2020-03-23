@@ -1,9 +1,7 @@
 # Paranoia
 > Encryptor
 
-An encryptor for text and files written in python 3 using the cryptography library
-
-<!-- ![](../header.png) -->
+An encryptor for text and files (only files at the moment) written in python 3 using the cryptography library
 
 ## Instalación
 
