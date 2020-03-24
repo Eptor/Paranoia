@@ -21,7 +21,7 @@ if len(sys.argv) == 4:
         # Agarra la contraseña y la convierte en bytes
         password = sys.argv[3].encode()
         sleep(1)
-        print("Starting...")
+        print("Iniciando...")
         EncryptedToken = defs.encrypt(password, 1, file)
         # Agarra la ruta del archivo original para crear el nuevo archivo
         file_name = path.dirname(path.abspath(file)) + "\encrypted.file"
@@ -30,7 +30,7 @@ if len(sys.argv) == 4:
             file_encryption.write(EncryptedToken)  # Escribe el archivo encriptado
             file_encryption.close()
 
-        print("Procces completed.")
+        print("Completado.")
         system("cls")
 
     # Desencripta archivo
@@ -42,7 +42,7 @@ if len(sys.argv) == 4:
         # Agarra la contraseña y la convierte en bytes
         password = sys.argv[3].encode()
         sleep(1)
-        print("Starting...")
+        print("Iniciando...")
 
         with open(file, "r") as file_encrypted:
             # Lee el archivo y convierte el string en bytes
@@ -55,13 +55,13 @@ if len(sys.argv) == 4:
             final_file.write(DecryptedToken)  # Escribe el archivo desencriptado
             final_file.close()
 
-        print("Procces completed.")
+        print("Completado.")
         system("cls")
 
     # Encripta texto
     elif sys.argv[1] == "-T" and sys.argv[2] == "-e" and sys.argv[3] != "":
         # Turns the string given into bytes
-        data = input("What do you want to encrtpy?\n> ").encode()
+        data = input("Que quieres encriptar?\n> ").encode()
         # Agarra la contraseña y la convierte a bytes
         password = sys.argv[3].encode()
         EncryptedToken = defs.encrypt(password, 2, data)  # Encripta el texto
@@ -72,7 +72,7 @@ if len(sys.argv) == 4:
         system("cls")
 
     elif sys.argv[1] == "-T" and sys.argv[2] == "-d" and sys.argv[3] != "":
-        data = input("What do you want to decrypt?\n> ").encode()
+        data = input("Que quieres desencriptar?\n> ").encode()
         password = sys.argv[3].encode()  # Agarra la contraseña y la convierte a bytes
         DecryptedToken = defs.decrypt(password, data)  # Desencripta el texto
         print(f"""
