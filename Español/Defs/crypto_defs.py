@@ -7,7 +7,6 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 # El proceso base se saco de los Docs:
 # https://cryptography.io/en/latest/fernet/#using-passwords-with-fernet
 
-
 def encrypt(password, file):
 
     """ Encripta el archivo dado por el usuario """
