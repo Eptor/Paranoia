@@ -23,7 +23,7 @@ if len(sys.argv) == 3:
 
         print("Procces completed.")
         system("cls")
-        
+
     # Decrypt
     elif sys.argv[1] == "-d" and sys.argv[2] != "":
         file = input("File to decrypt (use full path if necessary)\n> ")
