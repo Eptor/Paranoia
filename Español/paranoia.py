@@ -76,7 +76,7 @@ if len(sys.argv) == 4:
         password = sys.argv[3].encode()  # Agarra la contraseña y la convierte a bytes
         DecryptedToken = defs.decrypt(password, data)  # Desencripta el texto
         print(f"""
-        Tu texto desencriptado es: {Fore.GREEN + DecryptedToken.decode()} 
+        Tu texto desencriptado es: {Fore.GREEN + DecryptedToken.decode()}
         {Fore.RESET + "Y ha sido copiado a tu portapapeles"}.""")  # Convierte los bytes a string para poder concatenarlos con Fore
         pyperclip.copy(DecryptedToken.decode())
         sleep(2)
