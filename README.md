@@ -20,3 +20,11 @@ pip install cryptography
 Repo:
 
 You can clone or download this repository
+
+## Use
+
+You can use **-F** *(paranoia.py -F -e password123)* to use the Files mode
+You can use **-T** *(paranoia.py -T -d password123)* for Text mode, then:
+You can use **"-e"** + your password to enctypr *(paranoia.py -F -e password123)*
+You can use **"-d"** + your password to decrypt *(paranoia.py -T -d password123)*
+You can use **"-h"** to show this message in your terminal *(paranoia.py -h)*
