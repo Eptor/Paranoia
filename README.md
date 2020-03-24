@@ -1,6 +1,6 @@
 # Paranoia
 
-An encryptor for text and files (only files at the moment) written in python 3 using the cryptography module
+An encryptor for text and files, written in python 3 using the cryptography module
 
 ## Salt
 You can change the salt used by the functions, just use the os module:
