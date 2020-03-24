@@ -29,7 +29,7 @@ if len(sys.argv) == 3:
         print("Starting...")
         with open(file, "r") as file_encrypted:
             token = file_encrypted.read().encode()  # Reads the file and convert the string to bytes
-            DecryptedToken = defs.decrypt(password, token) # Decryption of the file
+            DecryptedToken = defs.decrypt(password, token)  # Decryption of the file
             file_encrypted.close()
         with open(file_name, "wb") as final_file:  # Creates the decrypted file
             final_file.write(DecryptedToken)

@@ -4,7 +4,7 @@ from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 
-# El proceso base se saco de los Docs: 
+# El proceso base se saco de los Docs:
 # https://cryptography.io/en/latest/fernet/#using-passwords-with-fernet
 
 
