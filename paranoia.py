@@ -27,7 +27,7 @@ if len(sys.argv) == 3:
     # Decrypt
     elif sys.argv[1] == "-d" and sys.argv[2] != "":
         file = input("File to decrypt (use full path if necessary)\n> ")
-        file_name = input("New file name (include extension - Dont use full path)\n> ") 
+        file_name = input("New file name (include extension - Dont use full path)\n> ")
         file_name = f"{path.dirname(path.abspath(file))}\{file_name}"  # Gets the path of the file and add the given name
         password = sys.argv[2].encode()  # Gets the password and turns it to bytes
         sleep(1)
