@@ -24,8 +24,8 @@ Puedes descargar o clonar este repositorio
 
 ## Uso
 
-Puedes usar **-F** *(paranoia.py -F -e password123)* para usar el modo de archivos
-Puedes usar **-T** *(paranoia.py -T -d password123)* para el modo de texto , luego:
-Puedes usar **"-e"** + tu contraseña para encriptar *(paranoia.py -e password123)*
-Puedes usar **"-d"** + tu contraseña para desencriptar *(paranoia.py -d password123)*
-Puedes usar **"-h"** para ver este mensaje en tu terminal *(paranoia.py -h)*
+* Puedes usar **-F** *(paranoia.py -F -e password123)* para usar el modo de archivos
+* Puedes usar **-T** *(paranoia.py -T -d password123)* para el modo de texto , luego:
+* Puedes usar **"-e"** + tu contraseña para encriptar *(paranoia.py -e password123)*
+* Puedes usar **"-d"** + tu contraseña para desencriptar *(paranoia.py -d password123)*
+* Puedes usar **"-h"** para ver este mensaje en tu terminal *(paranoia.py -h)*
