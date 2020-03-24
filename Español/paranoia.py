@@ -3,6 +3,7 @@ import sys
 from os import system, path
 from time import sleep
 from pathlib import Path
+import datetime
 
 # Local import
 import Defs.crypto_defs as defs
@@ -24,13 +25,14 @@ if len(sys.argv) == 4:
         print("Iniciando...")
         EncryptedToken = defs.encrypt(password, 1, file)
         # Agarra la ruta del archivo original para crear el nuevo archivo
-        file_name = path.dirname(path.abspath(file)) + "\encrypted.file"
+        file_name = path.dirname(path.abspath(file)) + f"{datetime.date.today()}.cryptic"
 
         with open(file_name, "wb") as file_encryption:
             file_encryption.write(EncryptedToken)  # Escribe el archivo encriptado
             file_encryption.close()
 
-        print("Completado.")
+        print(Fore.CYAN + "Completado.")
+        sleep(2)
         system("cls")
 
     # Desencripta archivo
@@ -44,18 +46,17 @@ if len(sys.argv) == 4:
         sleep(1)
         print("Iniciando...")
 
-        with open(file, "r") as file_encrypted:
-            # Lee el archivo y convierte el string en bytes
-            token = file_encrypted.read().encode()
-            DecryptedToken = defs.decrypt(
-                password, token)  # Desencripta el archivo
+        with open(file, "rb") as file_encrypted:
+            token = file_encrypted.read()
+            DecryptedToken = defs.decrypt(password, token)  # Desencripta el archivo
             file_encrypted.close()
 
         with open(file_name, "wb") as final_file:  # Crea el archivo desencriptado
             final_file.write(DecryptedToken)  # Escribe el archivo desencriptado
             final_file.close()
 
-        print("Completado.")
+        print(Fore.CYAN + "Completado.")
+        sleep(2)
         system("cls")
 
     # Encripta texto

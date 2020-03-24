@@ -23,9 +23,8 @@ def encrypt(password, mode, data):
     key = base64.urlsafe_b64encode(kdf.derive(password))
     f = Fernet(key)
     if mode == 1:
-        with open(data, 'r') as file_encryption:
-            # Reads the file and turns the string into bytes
-            text_from_file = file_encryption.read().encode()
+        with open(data, 'rb') as file_encryption:
+            text_from_file = file_encryption.read()
             # Encrypts the bytes grabbed above
             EncryptedToken = f.encrypt(text_from_file)
             file_encryption.close()

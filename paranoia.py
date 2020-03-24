@@ -3,6 +3,7 @@ import sys
 from os import system, path
 from time import sleep
 from pathlib import Path
+import datetime
 
 # Local import
 import Defs.crypto_defs as defs
@@ -24,20 +25,20 @@ if len(sys.argv) == 4:
         print("Starting...")
         EncryptedToken = defs.encrypt(password, 1, file)
         # Gets the path of the file and creates the new one in there
-        file_name = path.dirname(path.abspath(file)) + "\encrypted.file"
+        file_name = path.dirname(path.abspath(file)) + f"{datetime.date.today()}.cryptic"
 
         with open(file_name, "wb") as file_encryption:
             file_encryption.write(EncryptedToken)  # Writes the encrypted file
             file_encryption.close()
 
         print(Fore.CYAN + "Procces completed.")
+        sleep(2)
         system("cls")
 
     # Decrypt
     elif sys.argv[1] == "-F" and sys.argv[2] == "-d" and sys.argv[3] != "":
         file = input("File to decrypt (use full path if necessary)\n> ")
-        file_name = input(
-            "New file name (include extension - Dont use full path)\n> ")
+        file_name = input("New file name (include extension - Dont use full path)\n> ")
         # Gets the path of the file and add the given name
         file_name = f"{path.dirname(path.abspath(file))}\{file_name}"
         # Gets the password and turns it to bytes
@@ -45,9 +46,9 @@ if len(sys.argv) == 4:
         sleep(1)
         print("Starting...")
 
-        with open(file, "r") as file_encrypted:
+        with open(file, "rb") as file_encrypted:
             # Reads the file and convert the string to bytes
-            token = file_encrypted.read().encode()
+            token = file_encrypted.read()
             DecryptedToken = defs.decrypt(
                 password, token)  # Decryption of the file
             file_encrypted.close()
@@ -57,6 +58,7 @@ if len(sys.argv) == 4:
             final_file.close()
 
         print(Fore.CYAN + "Procces completed.")
+        sleep(2)
         system("cls")
 
     elif sys.argv[1] == "-T" and sys.argv[2] == "-e" and sys.argv[3] != "":
