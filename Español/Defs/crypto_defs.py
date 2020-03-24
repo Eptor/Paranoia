@@ -8,7 +8,7 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 # https://cryptography.io/en/latest/fernet/#using-passwords-with-fernet
 
 
-def encrypt(password, file):
+def encrypt(password, mode, data):
 
     """ Encripta el archivo dado por el usuario """
 
@@ -22,10 +22,15 @@ def encrypt(password, file):
     )
     key = base64.urlsafe_b64encode(kdf.derive(password))  # Convierte la contraseña dada en los parametros a una segura
     f = Fernet(key)
-    with open(file, 'r') as file_encryption:
-        text_from_file = file_encryption.read().encode()  # Lee el archivo y convierte el string a bytes
-        EncryptedToken = f.encrypt(text_from_file)  # Encripta los bytes creados arriba
-        file_encryption.close()
+    if mode == 1:
+        with open(data, 'r') as file_encryption:
+            # Reads the file and turns the string into bytes
+            text_from_file = file_encryption.read().encode()
+            # Encrypts the bytes grabbed above
+            EncryptedToken = f.encrypt(text_from_file)
+            file_encryption.close()
+    elif mode == 2:
+        EncryptedToken = f.encrypt(data)
     return EncryptedToken
 
 

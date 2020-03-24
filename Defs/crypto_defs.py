@@ -8,9 +8,8 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 # https://cryptography.io/en/latest/fernet/#using-passwords-with-fernet
 
 
-def encrypt(password, file):
-
-    """ Encrypts the file given by the user """
+def encrypt(password, mode, data):
+    """ Encrypts the data given by the user """
 
     salt = b'\xbd\x10\xcb\x8aK\x88Dw\xd8\x1b!\x909.\x07e'
     kdf = PBKDF2HMAC(
@@ -20,18 +19,23 @@ def encrypt(password, file):
         iterations=100000,
         backend=default_backend()
     )
-    key = base64.urlsafe_b64encode(kdf.derive(password))  # Generates a secure password using the given password in the parameters
+    # Generates a secure password using the given password in the parameters
+    key = base64.urlsafe_b64encode(kdf.derive(password))
     f = Fernet(key)
-    with open(file, 'r') as file_encryption:
-        text_from_file = file_encryption.read().encode()  # Reads the file and turns the string into bytes
-        EncryptedToken = f.encrypt(text_from_file)  # Encrypts the bytes grabbed above
-        file_encryption.close()
+    if mode == 1:
+        with open(data, 'r') as file_encryption:
+            # Reads the file and turns the string into bytes
+            text_from_file = file_encryption.read().encode()
+            # Encrypts the bytes grabbed above
+            EncryptedToken = f.encrypt(text_from_file)
+            file_encryption.close()
+    elif mode == 2:
+        EncryptedToken = f.encrypt(data)
     return EncryptedToken
 
 
 def decrypt(password, token):
-
-    """ Decrypts the file given by the user """
+    """ Decrypts the data given by the user """
 
     salt = b'\xbd\x10\xcb\x8aK\x88Dw\xd8\x1b!\x909.\x07e'
     kdf = PBKDF2HMAC(
@@ -41,7 +45,8 @@ def decrypt(password, token):
         iterations=100000,
         backend=default_backend()
     )
-    key = base64.urlsafe_b64encode(kdf.derive(password))  # Generates a secure password using the given password in the parameters
+    # Generates a secure password using the given password in the parameters
+    key = base64.urlsafe_b64encode(kdf.derive(password))
     f = Fernet(key)
     DecryptedToken = f.decrypt(token)  # Decrypts the given file
     return DecryptedToken
