@@ -1,3 +1,4 @@
+[![DeepSource](https://static.deepsource.io/deepsource-badge-light-mini.svg)](https://deepsource.io/gh/ArcticBabe/Paranoia/?ref=repository-badge)
 # Paranoia
 
 Un encriptador para texto y archivos, escrito en python 3 usando el modulo de criptografía
