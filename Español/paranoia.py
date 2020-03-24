@@ -29,7 +29,7 @@ if len(sys.argv) == 3:
         file = input("Archivo a desencriptar (usa toda la ruta si es necesario)\n> ")
         file_name = input("Nombre del nuevo archivo (Incluya extension - No use ruta completa)\n>")  # Guarda el nombre final del archivo
         # Toma la ruta del archivo original y la usa para crear el archivo desencriptado
-        file_name = f"{path.dirname(path.abspath(file))}\{file_name}" 
+        file_name = f"{path.dirname(path.abspath(file))}\{file_name}"
         password = sys.argv[2].encode()  # Agarra la contraseña y la convierte a bytes
         sleep(1)
         print("Iniciando...")
