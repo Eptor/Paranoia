@@ -25,11 +25,10 @@ if len(sys.argv) == 4:
         print("Iniciando...")
         EncryptedToken = defs.encrypt(password, 1, file)
         # Agarra la ruta del archivo original para crear el nuevo archivo
-        file_name = path.dirname(path.abspath(file)) + f"{datetime.date.today()}.cryptic"
+        file_name = path.join(path.dirname(path.abspath(file)), f"{datetime.date.today()}.cryptic")
 
         with open(file_name, "wb") as file_encryption:
             file_encryption.write(EncryptedToken)  # Escribe el archivo encriptado
-            file_encryption.close()
 
         print(Fore.CYAN + "Completado.")
         sleep(2)
@@ -49,11 +48,9 @@ if len(sys.argv) == 4:
         with open(file, "rb") as file_encrypted:
             token = file_encrypted.read()
             DecryptedToken = defs.decrypt(password, token)  # Desencripta el archivo
-            file_encrypted.close()
 
         with open(file_name, "wb") as final_file:  # Crea el archivo desencriptado
             final_file.write(DecryptedToken)  # Escribe el archivo desencriptado
-            final_file.close()
 
         print(Fore.CYAN + "Completado.")
         sleep(2)

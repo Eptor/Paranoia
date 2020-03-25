@@ -25,11 +25,10 @@ if len(sys.argv) == 4:
         print("Starting...")
         EncryptedToken = defs.encrypt(password, 1, file)
         # Gets the path of the file and creates the new one in there
-        file_name = path.dirname(path.abspath(file)) + f"{datetime.date.today()}.cryptic"
+        file_name = path.join(path.dirname(path.abspath(file)), f"{datetime.date.today()}.cryptic")
 
         with open(file_name, "wb") as file_encryption:
             file_encryption.write(EncryptedToken)  # Writes the encrypted file
-            file_encryption.close()
 
         print(Fore.CYAN + "Procces completed.")
         sleep(2)
@@ -49,13 +48,10 @@ if len(sys.argv) == 4:
         with open(file, "rb") as file_encrypted:
             # Reads the file and convert the string to bytes
             token = file_encrypted.read()
-            DecryptedToken = defs.decrypt(
-                password, token)  # Decryption of the file
-            file_encrypted.close()
+            DecryptedToken = defs.decrypt(password, token)  # Decryption of the file
 
         with open(file_name, "wb") as final_file:  # Creates the decrypted file
             final_file.write(DecryptedToken)  # Writes the decrypted file
-            final_file.close()
 
         print(Fore.CYAN + "Procces completed.")
         sleep(2)
