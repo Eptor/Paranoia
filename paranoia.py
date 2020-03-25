@@ -84,7 +84,7 @@ if len(sys.argv) == 4:
 else:
     print('''
     You can use -F to use the Files mode or use -T for Text mode, then:
-    You can use "-e" + your password to enctypr (paranoia.py -e password123)
+    You can use "-e" + your password to enctypt (paranoia.py -e password123)
     You can use "-d" + your password to decrypt (paranoia.py -d password123)
     You can use "-h" to show this message
 ''')
