@@ -33,4 +33,4 @@ Puedes descargar o clonar este repositorio
 
 ## Termux
 
-La compatibilidad con termux esta, de mometno, en desarrollo
+La compatibilidad con termux esta, de momento, en desarrollo
