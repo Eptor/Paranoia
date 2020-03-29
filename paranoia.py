@@ -1,5 +1,6 @@
 # Native modules
 import sys
+import platform
 from os import system, path
 from time import sleep
 from pathlib import Path
@@ -32,7 +33,7 @@ if len(sys.argv) == 4:
 
         print(Fore.CYAN + "Procces completed.")
         sleep(2)
-        system("cls")
+        system("cls" if platform.system() == "Windows" else "clear")
 
     # Decrypt
     elif sys.argv[1] == "-F" and sys.argv[2] == "-d" and sys.argv[3] != "":
@@ -55,7 +56,7 @@ if len(sys.argv) == 4:
 
         print(Fore.CYAN + "Procces completed.")
         sleep(2)
-        system("cls")
+        system("cls" if platform.system() == "Windows" else "clear")
 
     elif sys.argv[1] == "-T" and sys.argv[2] == "-e" and sys.argv[3] != "":
         # Turns the string given into bytes
@@ -67,7 +68,7 @@ if len(sys.argv) == 4:
         print(Fore.GREEN + """
         Your data has been encrypted and copied to your clipboard.""")
         sleep(2)
-        system("cls")
+        system("cls" if platform.system() == "Windows" else "clear")
 
     elif sys.argv[1] == "-T" and sys.argv[2] == "-d" and sys.argv[3] != "":
         data = input("What do you want to decrypt?\n> ").encode()
@@ -78,13 +79,13 @@ if len(sys.argv) == 4:
         {Fore.RESET + "And it has been copied to your clipboard"}.""")  # Turns the bytes to string so it can concatenate with Fore
         pyperclip.copy(DecryptedToken.decode())
         sleep(2)
-        system("cls")
+        system("cls" if platform.system() == "Windows" else "clear")
 
 # Error handle
 else:
     print('''
     You can use -F to use the Files mode or use -T for Text mode, then:
-    You can use "-e" + your password to enctypt (paranoia.py -e password123)
-    You can use "-d" + your password to decrypt (paranoia.py -d password123)
+    You can use "-e" + your password to enctypt (paranoia.py -F -e password123)
+    You can use "-d" + your password to decrypt (paranoia.py -T -d password123)
     You can use "-h" to show this message
 ''')
