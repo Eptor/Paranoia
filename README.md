@@ -12,10 +12,29 @@ and change the salt value on Defs/crypto_defs.py
 
 ## Install
 
-Cryptogrphy:
+You can use:
+```
+pip install -r requirements.txt -y // pip install -r requirements_linux.txt -y
+```
+
+or install the modules individually
+
+Cryptogrphy module:
 
 ```
 pip install cryptography
+```
+
+Colorama module:
+
+```
+pip install colorama
+```
+
+Pyperclip module (only windows for now):
+
+```
+pip install pyperclip
 ```
 
 Repo:
