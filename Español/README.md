@@ -13,10 +13,29 @@ y cambia el valor de salt en Defs/crypto_defs.py
 
 ## Instalación
 
+Puedes usar:
+```
+pip install -r requirements.txt -y // pip install -r requirements_linux.txt -y
+```
+
+o instalar los modulos individualmente
+
 Modulo cryptogrphy:
 
 ```
 pip install cryptography
+```
+
+Modulo Colorama:
+
+```
+pip install colorama
+```
+
+Modulo pyperclip (solo windows de momento):
+
+```
+pip install pyperclip
 ```
 
 Repo:
