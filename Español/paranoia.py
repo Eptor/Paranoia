@@ -10,12 +10,12 @@ import datetime
 import Defs.crypto_defs as defs
 
 # Installed modules
-import pyperclip
 from colorama import Fore, init
 
 init(autoreset=True)
 
 if len(sys.argv) == 4:
+    import pyperclip
     # Encripta archivo
     if sys.argv[1] == "-F" and sys.argv[2] == "-e" and sys.argv[3] != "":
         # Convierte la ruta dada a ruta de windows
@@ -40,7 +40,7 @@ if len(sys.argv) == 4:
         file = input("Archivo a desencriptar (usa la ruta completa si es necesario)\n> ")
         file_name = input("Nombre del nuevo archivo (incluye extension - No uses ruta completa)\n> ")
         # Agarra la ruta del archivo original para crear el nuevo archivo
-        file_name = f"{path.dirname(path.abspath(file))}\{file_name}"
+        file_name = path.join(path.dirname(path.abspath(file)), f"{datetime.date.today()}.cryptic")
         # Agarra la contraseña y la convierte en bytes
         password = sys.argv[3].encode()
         sleep(1)
@@ -88,4 +88,5 @@ else:
     Puedes usar "-e" + tu contraseña para encriptar (paranoia.py -F -e password123)
     Puedes usar "-d" + tu contraseña para desencriptar (paranoia.py -T -d password123)
     Puedes usar "-h" para ver este mensaje
+    Y puedes usar "-termux" para indicar que estas en termux!
 ''')
