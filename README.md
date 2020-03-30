@@ -29,7 +29,8 @@ You can clone or download this repository
 * You can use **"-e"** + your password to enctypt *(paranoia.py -F -e password123)*
 * You can use **"-d"** + your password to decrypt *(paranoia.py -T -d password123)*
 * You can use **"-h"** to show this message in your terminal *(paranoia.py -h)*
+* And you can use **-termux** to indicate you are on termux! 
 
 ## Termux
 
-termux compatibility is a work in progress at the moment
+Compatibility with termux (and linux in general) seems finished.

@@ -40,7 +40,7 @@ if len(sys.argv) == 4:
         file = input("File to decrypt (use full path if necessary)\n> ")
         file_name = input("New file name (include extension - Dont use full path)\n> ")
         # Gets the path of the file and add the given name
-        file_name = f"{path.dirname(path.abspath(file))}\{file_name}"
+        file_name = path.join(path.dirname(path.abspath(file)), f"{datetime.date.today()}.cryptic")
         # Gets the password and turns it to bytes
         password = sys.argv[3].encode()
         sleep(1)
@@ -105,7 +105,7 @@ elif len(sys.argv) == 5 and sys.argv[4] == "-termux":
         file = input("File to decrypt (use full path if necessary)\n> ")
         file_name = input("New file name (include extension - Dont use full path)\n> ")
         # Gets the path of the file and add the given name
-        file_name = f"{path.dirname(path.abspath(file))}\{file_name}"
+        file_name = path.join(path.dirname(path.abspath(file)), f"{datetime.date.today()}.cryptic")
         # Gets the password and turns it to bytes
         password = sys.argv[3].encode()
         sleep(1)
