@@ -81,6 +81,63 @@ if len(sys.argv) == 4:
         sleep(2)
         system("cls" if platform.system() == "Windows" else "clear")
 
+elif len(sys.argv) == 5 and sys.argv[4] == "-termux":
+    if sys.argv[1] == "-F" and sys.argv[2] == "-e" and sys.argv[3] != "":
+        # Convierte el archivo a ruta de windows
+        file = Path(input("Archivo a encroptar (Usa ruta completa si es necesario)\n> "))
+        # Convierte la contreaseña a bytes
+        password = sys.argv[3].encode()
+        sleep(1)
+        print("Iniciando...")
+        EncryptedToken = defs.encrypt(password, 1, file)
+        file_name = path.join(path.dirname(path.abspath(file)), f"{datetime.date.today()}.cryptic")
+
+        with open(file_name, "wb") as file_encryption:
+            file_encryption.write(EncryptedToken)  # Escribe el archivo encriptado
+
+        print(Fore.CYAN + "Proceso completado.")
+        sleep(2)
+        system("clear")
+
+    # Decrypt
+    elif sys.argv[1] == "-F" and sys.argv[2] == "-d" and sys.argv[3] != "":
+        file = input("Archivo a desencriptar (Usa ruta completa si es necesario)\n> ")
+        file_name = input("Nombre de archivo nuevo (Incluye extension - No uses ruta compleat)\n> ")
+        file_name = path.join(path.dirname(path.abspath(file)), f"{datetime.date.today()}.cryptic")
+        password = sys.argv[3].encode()
+        sleep(1)
+        print("Iniciando...")
+
+        with open(file, "rb") as file_encrypted:
+            token = file_encrypted.read()
+            DecryptedToken = defs.decrypt(password, token)
+
+        with open(file_name, "wb") as final_file:
+            final_file.write(DecryptedToken)
+
+        print(Fore.CYAN + "Proceso completado.")
+        sleep(2)
+        system("clear")
+
+    elif sys.argv[1] == "-T" and sys.argv[2] == "-e" and sys.argv[3] != "":
+        data = input("Que quieres encriptar?\n> ").encode()
+        password = sys.argv[3].encode()
+        EncryptedToken = defs.encrypt(password, 2, data)
+        print(Fore.GREEN + f"""
+        Tu texto fue encriptado, selecciona y copia.
+        {Fore.RESET + {EncryptedToken}}""")
+        input("\nPresiona enter.")
+        system("clear")
+
+    elif sys.argv[1] == "-T" and sys.argv[2] == "-d" and sys.argv[3] != "":
+        data = input("Que qioeres desencriptar?\n> ").encode()
+        password = sys.argv[3].encode()
+        DecryptedToken = defs.decrypt(password, data)
+        print(f"""
+        Tu texto desencriptado es: {Fore.GREEN + DecryptedToken.decode()}
+        {Fore.RESET + "Puedes copiarlo"}.""")
+        input("\ Presiona enter.")
+        system("clear")
 # Error handle
 else:
     print('''
