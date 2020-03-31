@@ -129,9 +129,10 @@ elif len(sys.argv) == 5 and sys.argv[4] == "-termux":
         # Grabs the password and turns it into bytes
         password = sys.argv[3].encode()
         EncryptedToken = defs.encrypt(password, 2, data)  # Encrypts the data
-        print(Fore.GREEN + """
-        Your data has been encrypted and copied to your clipboard.""")
-        sleep(2)
+        print(Fore.GREEN + f"""
+        Your data has been encrypted, select and copy.
+        {Fore.RESET + {EncryptedToken}}""")
+        input("\nPress enter.")
         system("cls" if platform.system() == "Windows" else "clear")
 
     elif sys.argv[1] == "-T" and sys.argv[2] == "-d" and sys.argv[3] != "":
@@ -141,8 +142,8 @@ elif len(sys.argv) == 5 and sys.argv[4] == "-termux":
         DecryptedToken = defs.decrypt(password, data)  # Decrypts the data
         print(f"""
         Your decrypted data is: {Fore.GREEN + DecryptedToken.decode()}
-        {Fore.RESET + "And it has been copied to your clipboard"}.""")  # Turns the bytes to string so it can concatenate with Fore
-        sleep(2)
+        {Fore.RESET + "You can copy it"}.""")  # Turns the bytes to string so it can concatenate with Fore
+        input("\nPress enter.")
         system("cls" if platform.system() == "Windows" else "clear")
 
 # Error handle
