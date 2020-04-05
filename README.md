@@ -37,6 +37,12 @@ Pyperclip module (only windows for now):
 pip install pyperclip
 ```
 
+And for the GUI you will need the PySimpleGui module:
+
+```
+pip install PySimpleGUI
+```
+
 Repo:
 
 You can clone or download this repository
@@ -53,3 +59,5 @@ You can clone or download this repository
 ## Termux
 
 Compatibility with termux (and linux in general) seems finished.
+
+GUI icons by <a href="https://iconscout.com/contributors/nixxdsgn">NIXX Design</a> on <a href="https://iconscout.com">Iconscout</a>

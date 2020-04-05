@@ -38,6 +38,12 @@ Modulo pyperclip (solo windows de momento):
 pip install pyperclip
 ```
 
+Y para la interfaz grafica necesitas el modulo PySimpleGui:
+
+```
+pip install PySimpleGUI
+```
+
 Repo:
 
 Puedes descargar o clonar este repositorio
@@ -54,3 +60,5 @@ Puedes descargar o clonar este repositorio
 ## Termux
 
 La compatibilidad con termux (y linux en general) para finalizada.
+
+Iconos de la interfaz por <a href="https://iconscout.com/contributors/nixxdsgn">NIXX Design</a> en <a href="https://iconscout.com">Iconscout</a>
