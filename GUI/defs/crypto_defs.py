@@ -48,3 +48,4 @@ def decrypt(file, password):
         # Decrypts the bytes grabbed above
         DecryptedToken = f.decrypt(text_from_file)
     return DecryptedToken
+    

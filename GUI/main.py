@@ -15,7 +15,7 @@ sg.theme('DarkGrey6')
 layout = [  [sg.FileBrowse('Encrypt:', target='FileName_encrypt'), sg.Input(key='FileName_encrypt')],
             [sg.FileBrowse('Decrypt:', target='FileName_decrypt'), sg.Input(key='FileName_decrypt')],
             [sg.Button('Next'), sg.Button('Cancel')]
-        ]
+]
 
 sg.set_global_icon(base)
 
