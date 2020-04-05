@@ -61,4 +61,8 @@ Puedes descargar o clonar este repositorio
 
 La compatibilidad con termux (y linux en general) para finalizada.
 
+## Interfaz Grafica de Usuario
+
+La interfaz se añadio para una mejor y mas rapida interaccion del usuaio, solo el modo de archivos está habilitado en la interfaz.
+
 Iconos de la interfaz por <a href="https://iconscout.com/contributors/nixxdsgn">NIXX Design</a> en <a href="https://iconscout.com">Iconscout</a>
