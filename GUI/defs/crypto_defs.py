@@ -28,6 +28,7 @@ def encrypt(file, password):
         EncryptedToken = f.encrypt(text_from_file)
     return EncryptedToken
 
+
 def decrypt(file, password):
     """ Decrypts the data given by the user """
 
