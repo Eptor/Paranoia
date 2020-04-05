@@ -14,7 +14,11 @@ and change the salt value on Defs/crypto_defs.py
 
 You can use:
 ```
-pip install -r requirements.txt -y // pip install -r requirements_linux.txt -y
+pip install -r requirements.txt -y 
+```
+or
+```
+pip install -r requirements_linux.txt -y
 ```
 
 or install the modules individually
@@ -59,5 +63,9 @@ You can clone or download this repository
 ## Termux
 
 Compatibility with termux (and linux in general) seems finished.
+
+## Graphic User Interface
+
+The GUI was added for better and faster user interaction, only the files mode is enabled on the GUI.
 
 GUI icons by <a href="https://iconscout.com/contributors/nixxdsgn">NIXX Design</a> on <a href="https://iconscout.com">Iconscout</a>
