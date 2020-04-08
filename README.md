@@ -66,6 +66,7 @@ Compatibility with termux (and linux in general) seems finished.
 
 ## Graphic User Interface
 
-The GUI was added for better and faster user interaction, only the files mode is enabled on the GUI.
+The GUI was added for better and faster user interaction, only the mode to encrypt files is enabled on the GUI.
+You can find it <a href="https://github.com/Eptor/Paranoia_GUI">here</a>
 
 GUI icons by <a href="https://iconscout.com/contributors/nixxdsgn">NIXX Design</a> on <a href="https://iconscout.com">Iconscout</a>
