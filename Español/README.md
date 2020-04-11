@@ -15,7 +15,7 @@ y cambia el valor de salt en Defs/crypto_defs.py
 
 Puedes usar:
 ```
-pip install -r requirements.txt -y // pip install -r requirements_linux.txt -y
+pip install -r requirements.txt -y
 ```
 
 o instalar los modulos individualmente
@@ -32,7 +32,7 @@ Modulo Colorama:
 pip install colorama
 ```
 
-Modulo pyperclip (solo windows de momento):
+Modulo pyperclip:
 
 ```
 pip install pyperclip
@@ -43,10 +43,6 @@ Y para la interfaz grafica necesitas el modulo PySimpleGui:
 ```
 pip install PySimpleGUI
 ```
-
-Repo:
-
-Puedes descargar o clonar este repositorio
 
 ## Uso
 
@@ -63,7 +59,8 @@ La compatibilidad con termux (y linux en general) para finalizada.
 
 ## Interfaz Grafica de Usuario
 
-La interfaz se añadio para una mejor y mas rapida interaccion del usuaio, solo el modo de archivos está habilitado en la interfaz.
-Puedes encontrarlo <a href="https://github.com/Eptor/Paranoia_GUI">aqui</a>
+La interfaz se añadio para una mejor y mas rapida interaccion del usuaio.
+
+Puedes encontrarla <a href="https://github.com/Eptor/Paranoia_GUI">aqui</a>
 
 Iconos de la interfaz por <a href="https://iconscout.com/contributors/nixxdsgn">NIXX Design</a> en <a href="https://iconscout.com">Iconscout</a>

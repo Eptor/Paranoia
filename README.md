@@ -16,10 +16,6 @@ You can use:
 ```
 pip install -r requirements.txt -y 
 ```
-or
-```
-pip install -r requirements_linux.txt -y
-```
 
 or install the modules individually
 
@@ -35,7 +31,7 @@ Colorama module:
 pip install colorama
 ```
 
-Pyperclip module (only windows for now):
+Pyperclip module:
 
 ```
 pip install pyperclip
@@ -46,10 +42,6 @@ And for the GUI you will need the PySimpleGui module:
 ```
 pip install PySimpleGUI
 ```
-
-Repo:
-
-You can clone or download this repository
 
 ## Use
 
@@ -66,7 +58,8 @@ Compatibility with termux (and linux in general) seems finished.
 
 ## Graphic User Interface
 
-The GUI was added for better and faster user interaction, only the mode to encrypt files is enabled on the GUI.
+The GUI was added for better and faster user interaction.
+
 You can find it <a href="https://github.com/Eptor/Paranoia_GUI">here</a>
 
 GUI icons by <a href="https://iconscout.com/contributors/nixxdsgn">NIXX Design</a> on <a href="https://iconscout.com">Iconscout</a>
