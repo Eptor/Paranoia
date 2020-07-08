@@ -16,142 +16,134 @@ init(autoreset=True)
 
 if len(sys.argv) == 4:
     import pyperclip
-    # Encrypt
+    # Encripta archivo
     if sys.argv[1] == "-F" and sys.argv[2] == "-e" and sys.argv[3] != "":
-        # Turns the given file name to a windows path
-        file = Path(input("File to encrypt (use full path if necessary)\n> "))
-        # Gets the password and turns it to bytes
+        # Convierte la ruta dada a ruta de windows
+        file = Path(input("Archivo a encriptar (usa la ruta completa si es necesario)\n> "))
+        # Agarra la contraseña y la convierte en bytes
         password = sys.argv[3].encode()
         sleep(1)
-        print("Starting...")
+        print("Iniciando...")
         EncryptedToken = defs.encrypt(password, 1, file)
-        # Gets the path of the file and creates the new one in there
+        # Agarra la ruta del archivo original para crear el nuevo archivo
         file_name = path.join(path.dirname(path.abspath(file)), f"{datetime.date.today()}.cryptic")
 
         with open(file_name, "wb") as file_encryption:
-            file_encryption.write(EncryptedToken)  # Writes the encrypted file
+            file_encryption.write(EncryptedToken)  # Escribe el archivo encriptado
 
-        print(Fore.CYAN + "Procces completed.")
+        print(Fore.CYAN + "Completado.")
         sleep(2)
         system("cls" if platform.system() == "Windows" else "clear")
 
-    # Decrypt
+    # Desencripta archivo
     elif sys.argv[1] == "-F" and sys.argv[2] == "-d" and sys.argv[3] != "":
-        file = input("File to decrypt (use full path if necessary)\n> ")
-        file_name = input("New file name (include extension - Dont use full path)\n> ")
-        # Gets the path of the file and add the given name
+        file = input("Archivo a desencriptar (usa la ruta completa si es necesario)\n> ")
+        file_name = input("Nombre del nuevo archivo (incluye extension - No uses ruta completa)\n> ")
+        # Agarra la ruta del archivo original para crear el nuevo archivo
         file_name = path.join(path.dirname(path.abspath(file)), f"{datetime.date.today()}.cryptic")
-        # Gets the password and turns it to bytes
+        # Agarra la contraseña y la convierte en bytes
         password = sys.argv[3].encode()
         sleep(1)
-        print("Starting...")
+        print("Iniciando...")
 
         with open(file, "rb") as file_encrypted:
-            # Reads the file and convert the string to bytes
             token = file_encrypted.read()
-            DecryptedToken = defs.decrypt(password, token)  # Decryption of the file
+            DecryptedToken = defs.decrypt(password, token)  # Desencripta el archivo
 
-        with open(file_name, "wb") as final_file:  # Creates the decrypted file
-            final_file.write(DecryptedToken)  # Writes the decrypted file
+        with open(file_name, "wb") as final_file:  # Crea el archivo desencriptado
+            final_file.write(DecryptedToken)  # Escribe el archivo desencriptado
 
-        print(Fore.CYAN + "Procces completed.")
+        print(Fore.CYAN + "Completado.")
         sleep(2)
         system("cls" if platform.system() == "Windows" else "clear")
 
+    # Encripta texto
     elif sys.argv[1] == "-T" and sys.argv[2] == "-e" and sys.argv[3] != "":
         # Turns the string given into bytes
-        data = input("What do you want to encrtpy?\n> ").encode()
-        # Grabs the password and turns it into bytes
+        data = input("Que quieres encriptar?\n> ").encode()
+        # Agarra la contraseña y la convierte a bytes
         password = sys.argv[3].encode()
-        EncryptedToken = defs.encrypt(password, 2, data)  # Encrypts the data
+        EncryptedToken = defs.encrypt(password, 2, data)  # Encripta el texto
         pyperclip.copy(EncryptedToken.decode())
         print(Fore.GREEN + """
-        Your data has been encrypted and copied to your clipboard.""")
+        Tu texto ha sido encriptado y copiado a tu portapapeles.""")
         sleep(2)
         system("cls" if platform.system() == "Windows" else "clear")
 
     elif sys.argv[1] == "-T" and sys.argv[2] == "-d" and sys.argv[3] != "":
-        data = input("What do you want to decrypt?\n> ").encode()
-        password = sys.argv[3].encode()  # Gets the password and turns it to bytes
-        DecryptedToken = defs.decrypt(password, data)  # Decrypts the data
+        data = input("Que quieres desencriptar?\n> ").encode()
+        password = sys.argv[3].encode()  # Agarra la contraseña y la convierte a bytes
+        DecryptedToken = defs.decrypt(password, data)  # Desencripta el texto
         print(f"""
-        Your decrypted data is: {Fore.GREEN + DecryptedToken.decode()}
-        {Fore.RESET + "And it has been copied to your clipboard"}.""")  # Turns the bytes to string so it can concatenate with Fore
+        Tu texto desencriptado es: {Fore.GREEN + DecryptedToken.decode()}
+        {Fore.RESET + "Y ha sido copiado a tu portapapeles"}.""")  # Convierte los bytes a string para poder concatenarlos con Fore
         pyperclip.copy(DecryptedToken.decode())
         sleep(2)
         system("cls" if platform.system() == "Windows" else "clear")
 
 elif len(sys.argv) == 5 and sys.argv[4] == "-termux":
     if sys.argv[1] == "-F" and sys.argv[2] == "-e" and sys.argv[3] != "":
-        # Turns the given file name to a windows path
-        file = Path(input("File to encrypt (use full path if necessary)\n> "))
-        # Gets the password and turns it to bytes
+        # Convierte el archivo a ruta de windows
+        file = Path(input("Archivo a encroptar (Usa ruta completa si es necesario)\n> "))
+        # Convierte la contreaseña a bytes
         password = sys.argv[3].encode()
         sleep(1)
-        print("Starting...")
+        print("Iniciando...")
         EncryptedToken = defs.encrypt(password, 1, file)
-        # Gets the path of the file and creates the new one in there
         file_name = path.join(path.dirname(path.abspath(file)), f"{datetime.date.today()}.cryptic")
 
         with open(file_name, "wb") as file_encryption:
-            file_encryption.write(EncryptedToken)  # Writes the encrypted file
+            file_encryption.write(EncryptedToken)  # Escribe el archivo encriptado
 
-        print(Fore.CYAN + "Procces completed.")
+        print(Fore.CYAN + "Proceso completado.")
         sleep(2)
-        system("cls" if platform.system() == "Windows" else "clear")
+        system("clear")
 
     # Decrypt
     elif sys.argv[1] == "-F" and sys.argv[2] == "-d" and sys.argv[3] != "":
-        file = input("File to decrypt (use full path if necessary)\n> ")
-        file_name = input("New file name (include extension - Dont use full path)\n> ")
-        # Gets the path of the file and add the given name
+        file = input("Archivo a desencriptar (Usa ruta completa si es necesario)\n> ")
+        file_name = input("Nombre de archivo nuevo (Incluye extension - No uses ruta compleat)\n> ")
         file_name = path.join(path.dirname(path.abspath(file)), f"{datetime.date.today()}.cryptic")
-        # Gets the password and turns it to bytes
         password = sys.argv[3].encode()
         sleep(1)
-        print("Starting...")
+        print("Iniciando...")
 
         with open(file, "rb") as file_encrypted:
-            # Reads the file and convert the string to bytes
             token = file_encrypted.read()
-            DecryptedToken = defs.decrypt(password, token)  # Decryption of the file
+            DecryptedToken = defs.decrypt(password, token)
 
-        with open(file_name, "wb") as final_file:  # Creates the decrypted file
-            final_file.write(DecryptedToken)  # Writes the decrypted file
+        with open(file_name, "wb") as final_file:
+            final_file.write(DecryptedToken)
 
-        print(Fore.CYAN + "Procces completed.")
+        print(Fore.CYAN + "Proceso completado.")
         sleep(2)
-        system("cls" if platform.system() == "Windows" else "clear")
+        system("clear")
 
     elif sys.argv[1] == "-T" and sys.argv[2] == "-e" and sys.argv[3] != "":
-        # Turns the string given into bytes
-        data = input("What do you want to encrtpy?\n> ").encode()
-        # Grabs the password and turns it into bytes
+        data = input("Que quieres encriptar?\n> ").encode()
         password = sys.argv[3].encode()
-        EncryptedToken = defs.encrypt(password, 2, data)  # Encrypts the data
+        EncryptedToken = defs.encrypt(password, 2, data)
         print(Fore.GREEN + f"""
-        Your data has been encrypted, select and copy.
+        Tu texto fue encriptado, selecciona y copia.
         {Fore.RESET + {EncryptedToken}}""")
-        input("\nPress enter.")
-        system("cls" if platform.system() == "Windows" else "clear")
+        input("\nPresiona enter.")
+        system("clear")
 
     elif sys.argv[1] == "-T" and sys.argv[2] == "-d" and sys.argv[3] != "":
-        data = input("What do you want to decrypt?\n> ").encode()
-        # Gets the password and turns it to bytes
+        data = input("Que qioeres desencriptar?\n> ").encode()
         password = sys.argv[3].encode()
-        DecryptedToken = defs.decrypt(password, data)  # Decrypts the data
+        DecryptedToken = defs.decrypt(password, data)
         print(f"""
-        Your decrypted data is: {Fore.GREEN + DecryptedToken.decode()}
-        {Fore.RESET + "You can copy it"}.""")  # Turns the bytes to string so it can concatenate with Fore
-        input("\nPress enter.")
-        system("cls" if platform.system() == "Windows" else "clear")
-
+        Tu texto desencriptado es: {Fore.GREEN + DecryptedToken.decode()}
+        {Fore.RESET + "Puedes copiarlo"}.""")
+        input("\ Presiona enter.")
+        system("clear")
 # Error handle
 else:
     print('''
-    You can use -F to use the Files mode or use -T for Text mode, then:
-    You can use "-e" + your password to enctypt (paranoia.py -F -e password123)
-    You can use "-d" + your password to decrypt (paranoia.py -T -d password123)
-    You can use "-h" to show this message
-    And you can add -termux to indicate you are on termux!
+    Puedes usar -F para usar el modo de archivos o usar -T para el modo de texto, luego:
+    Puedes usar "-e" + tu contraseña para encriptar (paranoia.py -F -e password123)
+    Puedes usar "-d" + tu contraseña para desencriptar (paranoia.py -T -d password123)
+    Puedes usar "-h" para ver este mensaje
+    Y puedes usar "-termux" para indicar que estas en termux!
 ''')

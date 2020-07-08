@@ -1,65 +1,66 @@
 [![DeepSource](https://static.deepsource.io/deepsource-badge-light-mini.svg)](https://deepsource.io/gh/ArcticBabe/Paranoia/?ref=repository-badge)
 # Paranoia
 
-An encryptor for text and files, written in python 3 using the cryptography module
+Un encriptador para texto y archivos, escrito en python 3 usando el modulo de criptografía
 
 ## Salt
-You can change the salt used by the functions, just use the os module:
+
+Puedes cambiar el salt usado en las funciones, solo usa el modulo os:
 ```
 os.urandom(16)
 ```
-and change the salt value on Defs/crypto_defs.py
+y cambia el valor de salt en Defs/crypto_defs.py
 
-## Install
+## Instalación
 
-You can use:
+Puedes usar:
 ```
-pip install -r requirements.txt -y 
+pip install -r requirements.txt -y
 ```
 
-or install the modules individually
+o instalar los modulos individualmente
 
-Cryptogrphy module:
+Modulo cryptogrphy:
 
 ```
 pip install cryptography
 ```
 
-Colorama module:
+Modulo Colorama:
 
 ```
 pip install colorama
 ```
 
-Pyperclip module:
+Modulo pyperclip:
 
 ```
 pip install pyperclip
 ```
 
-And for the GUI you will need the PySimpleGui module:
+Y para la interfaz grafica necesitas el modulo PySimpleGui:
 
 ```
 pip install PySimpleGUI
 ```
 
-## Use
+## Uso
 
-* You can use **-F** *(paranoia.py -F -e password123)* to use the Files mode
-* You can use **-T** *(paranoia.py -T -d password123)* for Text mode, then:
-* You can use **"-e"** + your password to encrypt *(paranoia.py -F -e password123)*
-* You can use **"-d"** + your password to decrypt *(paranoia.py -T -d password123)*
-* You can use **"-h"** to show this message in your terminal *(paranoia.py -h)*
-* And you can use **-termux** to indicate you are on termux! 
+* Puedes usar **-F** *(paranoia.py -F -e password123)* para usar el modo de archivos
+* Puedes usar **-T** *(paranoia.py -T -d password123)* para el modo de texto , luego:
+* Puedes usar **"-e"** + tu contraseña para encriptar *(paranoia.py -e password123)*
+* Puedes usar **"-d"** + tu contraseña para desencriptar *(paranoia.py -d password123)*
+* Puedes usar **"-h"** para ver este mensaje en tu terminal *(paranoia.py -h)*
+* Y puedes usar **-termux** para indicar que estas en termux!
 
 ## Termux
 
-Compatibility with termux (and linux in general) seems finished.
+La compatibilidad con termux (y linux en general) para finalizada.
 
-## Graphic User Interface
+## Interfaz Grafica de Usuario
 
-The GUI was added for better and faster user interaction.
+La interfaz se añadio para una mejor y mas rapida interaccion del usuaio.
 
-You can find it <a href="https://github.com/Eptor/Paranoia_GUI">here</a>
+Puedes encontrarla <a href="https://github.com/Eptor/Paranoia_GUI">aqui</a>
 
-GUI icons by <a href="https://iconscout.com/contributors/nixxdsgn">NIXX Design</a> on <a href="https://iconscout.com">Iconscout</a>
+Iconos de la interfaz por <a href="https://iconscout.com/contributors/nixxdsgn">NIXX Design</a> en <a href="https://iconscout.com">Iconscout</a>
